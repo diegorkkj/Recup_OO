@@ -1,49 +1,55 @@
-import os
 from classe import *
+
+banco = Banco()
+
+cliente = Cliente()
 
 def main():
     while True:
         try:
-            limpar()
-            print("Bem vindo a Loja do Cacique")
-            print("[1] - Cadastrar Usuario")
-            print("[2] - Sacar")
+            print("Bem Vindo")
+            print("[1] - Cadastrar cliente")
+            print("[2] - Saque")
             print("[3] - Depositar")
-            print("[4] - Realizar Transferência")
-            print("[5] - Ver o Saldo")
+            print("[4] - Transferir")
+            print("[5] - Saldo")
             print("[6] - Sair")
-            print("Digite o numero equivalente a opção que deseja")
-            menu = int(input(">> "))
 
+            menu = int(input("Digite o número equivalente à opção que deseja\n>> "))
             match menu:
                 case 1:
                     limpar()
-                    pausar() 
-
+                    banco.adicionar_conta()
+                    banco.setNome(input("Digite o nome do cliente.\n>> "))
+                    banco.setCpf(input("Digite o CPF do cliente.\n>> "))
+                    banco.setSaldo(input("Digite o saldo do cliente.\n>> "))
+                    pausar()
                 case 2:
                     limpar()
+                    print("Saque")
+                    cliente.sacar()
                     pausar()
-
                 case 3:
                     limpar()
+                    print("Deposito")
                     pausar()
-                    
                 case 4:
                     limpar()
+                    print("Transferir")
                     pausar()
-
-
                 case 5:
                     limpar()
+                    print("Saldo")
+                    banco.getSaldo()
                     pausar()
-
                 case 6:
                     limpar()
                     print("Saindo...")
-                    pausar
+                    pausar()
                     break
-
-        except Exception as erro:
-            print("Valor invalido")
-            print(erro.__class__.__name__)
-    
+                case _:
+                    print("Essa opção não consta na lista.")
+        except Exception:
+            limpar()
+            print("Algo deu errado.")
+            pausar()
