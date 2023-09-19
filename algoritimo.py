@@ -6,11 +6,12 @@ def main():
         try:
             limpar()
             print("Bem vindo a Loja do Cacique")
-            print("[1] - ")
-            print("[2] - ")
-            print("[3] - ")
-            print("[4] - ")
-            print("[5] - Sair")
+            print("[1] - Cadastrar Usuario")
+            print("[2] - Sacar")
+            print("[3] - Depositar")
+            print("[4] - Realizar Transferência")
+            print("[5] - Ver o Saldo")
+            print("[6] - Sair")
             print("Digite o numero equivalente a opção que deseja")
             menu = int(input(">> "))
 
@@ -34,8 +35,12 @@ def main():
 
                 case 5:
                     limpar()
-                    print("Saindo...")
                     pausar()
+
+                case 6:
+                    limpar()
+                    print("Saindo...")
+                    pausar
                     break
 
         except Exception as erro:
